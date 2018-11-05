@@ -1,0 +1,130 @@
+/*应用通用样式1 开始*/
+
+.ty_ying_yong_style01 {
+	height: 2.08rem;
+	width: 100%;
+	position: relative;
+	padding: 0.3rem 0 0.18rem;
+	border-bottom:1px solid #F5F5F5 ;
+}
+.ty_ying_yong_style01:last-child{
+	border: none;
+}
+
+.ty_ying_yong_style01 img {
+	width: 1.6rem;
+	height: 1.6rem;
+	position: absolute;
+}
+
+.ty_ying_yong_style01 .style01_con {
+	padding-left: 1.84rem;
+}
+
+.ty_ying_yong_style01 .style01_con .tit {
+	font-size: 0.32rem;
+	font-weight: bold;
+	color: #323232;
+	margin-bottom: 0.08rem;
+}
+
+.ty_ying_yong_style01 .mid_box,
+.ty_ying_yong_style01 .btm_box {
+	display: flex;
+	justify-content: space-between;
+}
+
+.ty_ying_yong_style01 .style01_con .subtit {
+	width: 3.6rem;
+	height: 0.72rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	line-height: 0.36rem;
+	color: #646464;
+}
+
+.ty_ying_yong_style01 .style01_con .get_btn {
+	width: 1.2rem;
+	height: 0.48rem;
+	line-height: 0.48rem;
+	background: #F0F0F6;
+	border-radius: 0.24rem;
+	text-align: center;
+	color: #2873EE;
+	font-size: 0.28rem;
+	font-weight: bold;
+}
+
+.ty_ying_yong_style01 .btm_box {
+	padding-top: 0.06rem;
+}
+.gong_yong_tips{
+	display: flex;
+}
+.gong_yong_tips .tip_item {
+	height: 0.35rem;
+	line-height: 0.35rem;
+	border: 1px solid rgba(40, 115, 238, 1);
+	border-radius: 3px;
+	font-size: 0.2rem;
+	font-weight: bold;
+	color: rgba(40, 115, 238, 1);
+	text-align: center;
+	margin-right: 0.1rem;
+	padding: 0 0.06rem;
+}
+
+.ty_ying_yong_style01 .btm_box .price {
+	font-size: 0.24rem;
+	font-weight: bold;
+	color: rgba(255, 102, 0, 1);
+}
+
+
+/*应用通用样式1 结束*/
+
+/*视频通用样式1 开始*/
+.ty_shi_pin_style01{
+	width: 49.5%;
+	margin-left: 1%;
+	float: left;
+	margin: 0.21rem 0;
+}
+.ty_shi_pin_style01:nth-child(2n){
+	margin-left: 0;
+}
+.ty_shi_pin_style01 .pic img{
+	width: 100%;
+	height: 2.1rem;
+}
+.ty_shi_pin_style01 .txt{
+	padding-left: 0.2rem;
+}
+.ty_shi_pin_style01 .txt_p1{
+	font-size:0.32rem;
+	font-weight:500;
+	color:#323232;
+	padding-top: 0.04rem;
+}
+.ty_shi_pin_style01 .txt_p2{
+	font-size:0.24rem;
+font-weight:400;
+color: #646464;
+margin: 0.06rem 0 0.12rem;
+}
+.ty_shi_pin_style01 .txt_p3{
+	display: flex;
+	justify-content: space-between;
+}
+.ty_shi_pin_style01 .money{
+	font-size:0.24rem;
+	font-weight:bold;
+	color:#FF6600;
+}
+.ty_shi_pin_style01 .gong_yong_tips{
+	padding-top: 0.04rem;
+}
+/*视频通用样式1 结束*/
