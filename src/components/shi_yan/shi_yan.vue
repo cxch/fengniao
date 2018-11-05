@@ -1,39 +1,58 @@
 <template>
-	<swiper :options="swiperOption">
-		<swiper-slide v-for="slide in swiperSlides" :key="slide">I'm Slide {{ slide }}</swiper-slide>
-		<!--<div class="swiper-pagination" slot="pagination"></div>-->
-	</swiper>
+<div>
+        <yd-cell-group>
+            <yd-cell-item arrow>
+                <input slot="right" type="text" @click.stop="show1 = true" v-model="model1" readonly>
+            </yd-cell-item>
+        </yd-cell-group>
+
+        <yd-cityselect v-model="show1" :callback="result1" :items="district"></yd-cityselect>
+    </div>
 </template>
 
 <script>
+ import District from 'ydui-district/dist/jd_province_city_area_id';
+ import 'vue-ydui/dist/ydui.base.css';
 	export default {
 		name: 'carrousel',
 		data() {
 			return {
-				swiperOption: {
-//					pagination: {
-//						el: '.swiper-pagination'
-//					},
-//					autoplay: true,
-					simulateTouch : true,
-					freeMode:true,
-				},
-				swiperSlides: [1, 2, 3, 4, 5],
+				
+			show1: false,
+                model1: '',
+                district: District
 				
 			}
 		},
+		methods: {
+			 result1(ret) {
+                this.model1 = ret.itemName3;
+            }
+		},
 		mounted() {
-//			setInterval(() => {
-//				console.log('simulate async data')
-//				if(this.swiperSlides.length < 10) {
-//					this.swiperSlides.push(this.swiperSlides.length + 1)
-//				}
-//			}, 3000)
+
 		}
 	}
 </script>
-<style type="text/css" scoped>
-	.swiper-container{
-		height: 5rem;
+<style >
+	.yd-cell{
+		height: 0.5rem;
+		width: 3rem;;
+	}
+	.yd-cell-right{
+		width: 100%;
+		height: 100%;
+		min-height: 0;
+	}
+	.yd-cell-right input[type=text]{
+		width: 100%;
+		height: 100%;
+	}
+	.yd-cell-item{
+		width: 100%;
+		height: 100%;
+	}
+	.yd-cell-arrow:after{
+		/*display: none;*/
 	}
 </style>

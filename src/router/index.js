@@ -16,6 +16,9 @@ import ren_wu from '@/components/tui_guang/ren_wu' //任务页面
 import index from '@/components/index/index' //首页
 //详情
 import renwu_xq from '@/components/xiang_qing/ren_wu_xiang_qing'
+//列表页
+import ren_wu_list from '@/components/list/ren_wu_list' //任务列表页
+
 //实验
 import shiyan from '@/components/shi_yan/shi_yan'
 
@@ -28,6 +31,10 @@ export default new Router({
       component: index
     },
     {
+      path: '/ren_wu_list',
+      name: 'ren_wu_list',
+      component: ren_wu_list
+    },{
       path: '/renwu_xq',
       name: 'renwu_xq',
       component: renwu_xq

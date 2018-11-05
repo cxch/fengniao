@@ -162,7 +162,6 @@
 		</div>
 		<!--热门推荐 结束-->
 		<bottom-view show='true'></bottom-view>
-		<shiyan-view @parentClick="ahh"></shiyan-view>
 	</div>
 </template>
 
@@ -183,9 +182,6 @@
 			change_nav(_index) {
 				this.cur_nav = _index;
 			},
-			ahh(data){
-				console.log(data)
-			}
 			
 		},
 		mounted: function(e) {

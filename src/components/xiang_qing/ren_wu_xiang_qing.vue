@@ -27,8 +27,7 @@
 			<div class="img_box" >	
 				<div style="display: flex;padding: 0 0.3rem;">
 					<img :src="item" v-for="(item,index) in imgs" @click="click_img" />
-				</div>
-										
+				</div>										
 			</div>
 		</div>
 		<!--软件介绍  结束-->

@@ -128,3 +128,22 @@ margin: 0.06rem 0 0.12rem;
 	padding-top: 0.04rem;
 }
 /*视频通用样式1 结束*/
+
+/*查看更多*/
+	.see_more{
+		width: 0.24rem;
+		height: 0.2rem;
+		color: #2873EE;
+		font-size: 0.28rem;
+		height: 0.8rem;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.see_more img{
+		width: 0.24rem;
+		height: 0.2rem;
+		margin-top: 0.05rem;
+		margin-left: 0.1rem;
+	}
