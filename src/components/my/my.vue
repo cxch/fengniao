@@ -10,7 +10,7 @@
 		<!--个人信息、我的标签-->
 		<div class="wrap">
 			<!--个人信息-->
-			<div class="label">
+			<div class="label" @click="geren">
 				<img class="badge" src="../../assets/my/my_icon01.png" />
 				<div class="label_main">
 					个人信息
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="wrap">
-			<div class="label">
+			<div class="label" @click="qianbao">
 				<img class="badge" src="../../assets/my/my_icon04.png" />
 				<div class="label_main">
 					我的钱包
@@ -95,7 +95,18 @@
 
 		},
 		methods: {
-
+			//跳转到个人信息
+			geren(){
+				this.$router.push({
+					path: '/geren_xinxi'
+				});
+			},
+			//跳转到我的钱包
+			qianbao(){
+				this.$router.push({
+					path: '/qianbao'
+				});
+			}
 		},
 		mounted: function(e) {
 
