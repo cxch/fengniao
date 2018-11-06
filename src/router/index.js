@@ -9,7 +9,7 @@ import xiugai_shouji2 from '@/components/my/xiugai_shouji2' //修改新手机号
 import qianbao from '@/components/my/qianbao' //钱包
 import qianbao_chongzhi from '@/components/my/qianbao_chongzhi' //钱包充值
 import qianbao_tixian from '@/components/my/qianbao_tixian' //钱包提现
-import qianbao_mingxi from '@/components/my/qianbao_mingxi' //钱包提现
+import qianbao_mingxi from '@/components/my/qianbao_mingxi' //钱包明细
 //推广
 import ren_wu from '@/components/tui_guang/ren_wu' //任务页面
 //首页
@@ -32,7 +32,7 @@ Vue.use(Router)
 
 export default new Router({
 	routes: [{
-		path: '/',
+		path: '/index',
 		name: 'index',
 		component: index
 	},{
@@ -119,7 +119,7 @@ export default new Router({
 		name: 'qianbao_chongzhi',
 		component: qianbao_chongzhi
 	}, {
-		path: '/qianbao_tixian',
+		path: '/',
 		name: 'qianbao_tixian',
 		component: qianbao_tixian
 	}, {
