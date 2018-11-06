@@ -7,9 +7,9 @@ import router from './router'
 import YDUI from 'vue-ydui'; 
 import 'vue-ydui/dist/ydui.rem.css';
 import District from 'ydui-district/dist/gov_province_city_area_id';
+import 'vue-ydui/dist/ydui.base.css';
 //swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-import 'swiper/dist/css/swiper.css';
 
 
 Vue.use(YDUI);
