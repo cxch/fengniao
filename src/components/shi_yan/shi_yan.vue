@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="box">
         <yd-cell-group>
             <yd-cell-item arrow>
                 <input slot="right" type="text" @click.stop="show1 = true" v-model="model1" readonly>
@@ -35,24 +35,19 @@
 	}
 </script>
 <style >
-	.yd-cell{
-		height: 0.5rem;
-		width: 3rem;;
-	}
-	.yd-cell-right{
-		width: 100%;
+.box{
+	height: 0.5rem;
+		width: 3rem;
+}
+	.yd-cell,.yd-cell-right,.yd-cell-right input[type=text],.yd-cell-item{
 		height: 100%;
+		width: 100%;
 		min-height: 0;
+		margin: 0;
+		padding: 0;
 	}
-	.yd-cell-right input[type=text]{
-		width: 100%;
-		height: 100%;
-	}
-	.yd-cell-item{
-		width: 100%;
-		height: 100%;
-	}
+
 	.yd-cell-arrow:after{
-		/*display: none;*/
+		display: none;
 	}
 </style>

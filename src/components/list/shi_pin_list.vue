@@ -1,33 +1,31 @@
 <template>
 	<div class="rw_list" v-cloak>
 		<!--头部-->
-		<head-view title="任务列表" border="false" v-cloak></head-view>
+		<head-view title="视频列表" border="false" v-cloak></head-view>
 		<div class="nav_content">
 			<div class="nav_packet">
 				<div class="nav_item" :class="{active:cur_nav == item.id}" v-for="(item,index) in nav" @click="choose_nav(item.id)">{{item.name}}</div>
 			</div>
 		</div>
 		<div class="section">
-			<div class="ty_ying_yong_style01">
+			<div class="ty_shi_pin_style02">
+				<div class="item_lt">
 					<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
-					<div class="style01_con">
-						<div class="tit">华夏银行手机银行</div>
-						<div class="mid_box">
-							<div class="subtit">华夏银行移动银行是为客户量身打造的移动金融服务平台金融服务平台金融服务平台</div>
-							<div class="get_btn">获取</div>
+				</div>
+				<div class="item_rt">
+					<div class="tit">视频</div>
+					<div class="subtit slh_one">的撒大撒旦士大夫首发式发生生巅峰的方式发送的说法是大</div>
+					<div class="money">
+						<div class="gong_yong_tips">
+							<div class="tip_item">财务</div>
 						</div>
-						<div class="btm_box">
-							<div class="gong_yong_tips">
-								<div class="tip_item">财务</div>
-							</div>
-							<div class="price">
-								<span>返利金：￥</span><span style="font-size: 0.36rem;">12.0</span>
-							</div>
+						<div>
+							<span>返利金：￥</span><span style="font-size: 0.36rem;">1.0</span>
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
-
 	</div>
 </template>
 
@@ -74,7 +72,7 @@
 </script>
 
 <style scoped>
-@import url("../../../static/zxy.css");
+	@import url("../../../static/zxy.css");
 	.nav_content {
 		height: 0.88rem;
 		background: #FFFFFF;
@@ -107,7 +105,8 @@
 		color: #2873EE;
 		border-bottom: 2px solid #2873EE;
 	}
-	.section{
+	
+	.section {
 		padding: 0 0.3rem;
 		background: #FFFFFF;
 	}

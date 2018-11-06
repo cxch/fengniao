@@ -25,7 +25,6 @@
 				</swiper-slide>
 				<!--<div class="swiper-pagination" slot="pagination"></div>-->
 			</swiper>
-
 		</div>
 		<!--热门推荐-->
 		<div class="re_men">

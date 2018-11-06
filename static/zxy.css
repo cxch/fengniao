@@ -1,5 +1,4 @@
 /*应用通用样式1 开始*/
-
 .ty_ying_yong_style01 {
 	height: 2.08rem;
 	width: 100%;
@@ -82,8 +81,6 @@
 	font-weight: bold;
 	color: rgba(255, 102, 0, 1);
 }
-
-
 /*应用通用样式1 结束*/
 
 /*视频通用样式1 开始*/
@@ -128,7 +125,41 @@ margin: 0.06rem 0 0.12rem;
 	padding-top: 0.04rem;
 }
 /*视频通用样式1 结束*/
-
+/*视频通用样式2 开始*/
+.ty_shi_pin_style02{
+	padding: 0.3rem 0;
+	display: flex;
+	border-bottom: 1px solid #F5F5F5;
+}
+.ty_shi_pin_style02 .item_lt{
+width: 38%;
+	
+}
+.ty_shi_pin_style02 .item_rt{
+width: 62%;
+}
+.ty_shi_pin_style02 .item_lt img{
+	width:2.4rem ;
+	height: 1.35rem;
+}
+.ty_shi_pin_style02 .item_rt .tit{
+	font-size: 0.32rem;
+	font-weight:500;
+}
+.ty_shi_pin_style02 .item_rt .subtit{
+	font-size: 0.24rem;
+	font-weight:400;
+	color: #646464;
+	padding: 0.05rem 0 0.15rem;
+}
+.ty_shi_pin_style02 .item_rt .money{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	color:#FF6600 ;
+}
+/*视频通用样式2 结束*/
 /*查看更多*/
 	.see_more{
 		width: 0.24rem;
