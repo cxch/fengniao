@@ -80,10 +80,6 @@ export default new Router({
 		name: 'shiyan',
 		component: shiyan
 	}, {
-		path: '/index',
-		name: 'index',
-		component: index
-	}, {
 		path: '/ren_wu',
 		name: 'ren_wu',
 		component: ren_wu

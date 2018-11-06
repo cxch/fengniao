@@ -62,44 +62,44 @@
 		<div class="hot_box clearfix">
 			<div class="hot_tit">~热门推荐~</div>
 			<div class="hot_nav">
+				<div class="hot_nav_item" @click="change_nav(4)">
+					<img src="../../assets/index/nav_icon02.png" v-show="cur_nav!=4" />
+					<img src="../../assets/index/nav_icon01.png" v-show="cur_nav==4" />
+					<span :class="{active:cur_nav==4}">推荐任务</span>
+				</div>
 				<div class="hot_nav_item" @click="change_nav(1)">
-					<img src="../../assets/index/nav_icon02.png" v-show="cur_nav!=1" />
-					<img src="../../assets/index/nav_icon01.png" v-show="cur_nav==1" />
-					<span :class="{active:cur_nav==1}">推荐任务</span>
+					<img src="../../assets/index/nav_icon04.png" v-show="cur_nav!=1" />
+					<img src="../../assets/index/nav_icon03.png" v-show="cur_nav==1" />
+					<span :class="{active:cur_nav==1}">推荐应用</span>
 				</div>
 				<div class="hot_nav_item" @click="change_nav(2)">
-					<img src="../../assets/index/nav_icon04.png" v-show="cur_nav!=2" />
-					<img src="../../assets/index/nav_icon03.png" v-show="cur_nav==2" />
-					<span :class="{active:cur_nav==2}">推荐应用</span>
+					<img src="../../assets/index/nav_icon06.png" v-show="cur_nav!=2" />
+					<img src="../../assets/index/nav_icon05.png" v-show="cur_nav==2" />
+					<span :class="{active:cur_nav==2}">推荐公众号</span>
 				</div>
 				<div class="hot_nav_item" @click="change_nav(3)">
-					<img src="../../assets/index/nav_icon06.png" v-show="cur_nav!=3" />
-					<img src="../../assets/index/nav_icon05.png" v-show="cur_nav==3" />
-					<span :class="{active:cur_nav==3}">推荐公众号</span>
-				</div>
-				<div class="hot_nav_item" @click="change_nav(4)">
-					<img src="../../assets/index/nav_icon08.png" v-show="cur_nav!=4" />
-					<img src="../../assets/index/nav_icon07.png" v-show="cur_nav==4" />
-					<span :class="{active:cur_nav==4}">推荐视频</span>
+					<img src="../../assets/index/nav_icon08.png" v-show="cur_nav!=3" />
+					<img src="../../assets/index/nav_icon07.png" v-show="cur_nav==3" />
+					<span :class="{active:cur_nav==3}">推荐视频</span>
 				</div>
 			</div>
 			<div class="hot_con">
 				<!--推荐/应用/公众号的样式-->
-				<div style="padding: 0 0.3rem;">
-					<div class="ty_ying_yong_style01">
-						<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
+				<div style="padding: 0 0.3rem;" v-if="cur_nav==1||cur_nav==2||cur_nav==4">
+					<div class="ty_ying_yong_style01" v-for="(item,index) in list">
+						<img :src="item.img" />
 						<div class="style01_con">
-							<div class="tit">华夏银行手机银行</div>
+							<div class="tit">{{item.title}}</div>
 							<div class="mid_box">
-								<div class="subtit">华夏银行移动银行是为客户量身打造的移动金融服务平台金融服务平台金融服务平台</div>
+								<div class="subtit">{{item.sub_details}}</div>
 								<div class="get_btn">获取</div>
 							</div>
 							<div class="btm_box">
 								<div class="gong_yong_tips">
-									<div class="tip_item">财务</div>
+									<div class="tip_item" v-for="(item1,index1) in item.label">{{item1.name}}</div>
 								</div>
 								<div class="price">
-									<span>返利金：￥</span><span style="font-size: 0.36rem;">12.0</span>
+									<span>返利金：￥</span><span style="font-size: 0.36rem;">{{item.fy_price}}</span>
 								</div>
 							</div>
 						</div>
@@ -107,63 +107,28 @@
 				</div>
 
 				<!--视频-->
-				<div class="ty_shi_pin_style01">
-					<div class="pic">
-						<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
-					</div>
-					<div class="txt">
-						<div class="txt_p1">局部</div>
-						<div class="txt_p2 slh_one" >《局部》跟随陈丹青的眼睛洞见洞见洞见…</div>
-						<div class="txt_p3">
-							<div class="gong_yong_tips">
-								<div class="tip_item">财务</div>
-								<div class="tip_item">单独</div>
-							</div>
-							<div class="money">
-								<span>返利金：￥</span>
-								<span style="font-size: 0.36rem;">1.0</span>
+				<div v-if="cur_nav==3">
+					<div class="ty_shi_pin_style01" v-for="(item,index) in list">
+						<div class="pic">
+							<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
+						</div>
+						<div class="txt">
+							<div class="txt_p1">局部</div>
+							<div class="txt_p2 slh_one">《局部》跟随陈丹青的眼睛洞见洞见洞见…</div>
+							<div class="txt_p3">
+								<div class="gong_yong_tips">
+									<div class="tip_item">财务</div>
+									<div class="tip_item">单独</div>
+								</div>
+								<div class="money">
+									<span>返利金：￥</span>
+									<span style="font-size: 0.36rem;">1.0</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="ty_shi_pin_style01">
-					<div class="pic">
-						<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
-					</div>
-					<div class="txt">
-						<div class="txt_p1">局部</div>
-						<div class="txt_p2 slh_one" >《局部》跟随陈丹青的眼睛洞见洞见洞见…</div>
-						<div class="txt_p3">
-							<div class="gong_yong_tips">
-								<div class="tip_item">财务</div>
-								<div class="tip_item">单独</div>
-							</div>
-							<div class="money">
-								<span>返利金：￥</span>
-								<span style="font-size: 0.36rem;">1.0</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="ty_shi_pin_style01">
-					<div class="pic">
-						<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
-					</div>
-					<div class="txt">
-						<div class="txt_p1">局部</div>
-						<div class="txt_p2 slh_one" >《局部》跟随陈丹青的眼睛洞见洞见洞见…</div>
-						<div class="txt_p3">
-							<div class="gong_yong_tips">
-								<div class="tip_item">财务</div>
-								<div class="tip_item">单独</div>
-							</div>
-							<div class="money">
-								<span>返利金：￥</span>
-								<span style="font-size: 0.36rem;">1.0</span>
-							</div>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</div>
 		<!--热门推荐 结束-->
@@ -177,28 +142,79 @@
 		name: 'index',
 		data() {
 			return {
-				cur_nav: '1',
+				cur_nav: '4',
 				//省市企业插件数据
 				show1: false,
-                model1: '全国',
-                district: District
+				model1: '全国',
+				district: District,
+				list: [], //商品列表
 			}
 		},
 		created: function(e) {
-
+			var that = this;
+			console.log(this.common.ajax_url);
+			this.get_list();
 		},
 		methods: {
 			//点击热门推荐导航
 			change_nav(_index) {
 				this.cur_nav = _index;
+				this.get_list();
 			},
 			//省市区
 			result1(ret) {
-                this.model1 = ret.itemName1;
-            }
+				this.model1 = ret.itemName1;
+			},
+
+			//获取商品列表
+			get_list() {
+				var that = this;
+				$.ajax({
+					type: "post",
+					url: this.common.ajax_url + "/index.php/Api/Goods/index",
+					data: {
+						sheng: "山东省",
+						shi: "青岛市",
+						qu: "黄岛区",
+						type: that.cur_nav,
+					},
+					xhrFields: {
+						withCredentials: true
+					},
+					//			dataType: "jsonp",
+					//			contentType: "application/x-www-form-urlencoded",
+					success: function(res) {
+						console.log(res)
+						that.list=res.data;
+						
+
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						//		       alert(XMLHttpRequest.status);
+						//		       alert(XMLHttpRequest.readyState);
+						//		       alert(textStatus);
+					},
+				});
+			}
+
 		},
 		mounted: function(e) {
-
+			//调用腾讯的定位功能
+			var that = this;
+			var geolocation = new qq.maps.Geolocation("OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77", "myapp");
+			var options = {
+				timeout: 8000
+			};
+			function showPosition(position) {
+				//				alert('定位成功');
+				console.log(position)
+					//position即为获取的定位信息的对象
+			};
+			function showErr() {
+				alert('定位失败');
+			};
+			//获取位置信息
+			geolocation.getLocation(showPosition, showErr, options);
 		}
 	}
 </script>
@@ -213,7 +229,12 @@
 		background: #FFFFFF!important;
 	}
 	/*省市区插件样式*/
-	.yd-cell,.yd-cell-right,.yd-cell-right input[type=text],.yd-cell-item,.yd-cell-box{
+	
+	.yd-cell,
+	.yd-cell-right,
+	.yd-cell-right input[type=text],
+	.yd-cell-item,
+	.yd-cell-box {
 		height: 100%;
 		width: 100%;
 		min-height: 0;
@@ -221,15 +242,17 @@
 		padding: 0;
 		background: #2873EE;
 		font-size: 0.28rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    opacity: 0;
+		font-weight: bold;
+		color: rgba(255, 255, 255, 1);
+		text-align: center;
+		opacity: 0;
 	}
-	.yd-cell-arrow:after{
+	
+	.yd-cell-arrow:after {
 		display: none;
 	}
-	.yd-cell-box{
+	
+	.yd-cell-box {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -241,10 +264,12 @@
 	.yd-slider {
 		height: 3.2rem!important;
 	}
-	.yd-slider img{
+	
+	.yd-slider img {
 		width: 100%;
 		height: 100%;
 	}
+	
 	.search_box {
 		width: 100%;
 		height: 0.88rem;
