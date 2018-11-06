@@ -39,7 +39,7 @@
 	.head_nav{
 		height: 0.88rem;
 		width: 100%;
-		background: #fff;
+		background: #FAFAFA;
 		padding: 0 0.21rem;
 		display: flex;
 		align-items: center;

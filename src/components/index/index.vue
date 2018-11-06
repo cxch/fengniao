@@ -10,7 +10,13 @@
 				</yd-cell-group>
 
 				<yd-cityselect v-model="show1" :callback="result1" :items="district"></yd-cityselect>-->
-				<span>黄岛区黄岛区黄岛区</span><img src="../../assets/index/arrow_down.png" />
+				<span>{{model1}}<yd-cell-group>
+            <yd-cell-item arrow>
+                <input slot="right" type="text" @click.stop="show1 = true" v-model="model1" readonly>
+            </yd-cell-item>
+        </yd-cell-group>
+
+        <yd-cityselect v-model="show1" :callback="result1" :items="district"></yd-cityselect></span><img src="../../assets/index/arrow_down.png" />
 			</div>
 			<div class="search">
 				<img src="../../assets/index/serach.png" /><span>请搜索查找关键字</span>
@@ -162,7 +168,6 @@
 		</div>
 		<!--热门推荐 结束-->
 		<bottom-view show='true'></bottom-view>
-		<shiyan-view @parentClick="ahh"></shiyan-view>
 	</div>
 </template>
 
@@ -173,6 +178,10 @@
 		data() {
 			return {
 				cur_nav: '1',
+				//省市企业插件数据
+				show1: false,
+                model1: '全国',
+                district: District
 			}
 		},
 		created: function(e) {
@@ -183,10 +192,10 @@
 			change_nav(_index) {
 				this.cur_nav = _index;
 			},
-			ahh(data){
-				console.log(data)
-			}
-			
+			//省市区
+			result1(ret) {
+                this.model1 = ret.itemName1;
+            }
 		},
 		mounted: function(e) {
 
@@ -194,18 +203,39 @@
 	}
 </script>
 
-<style type="text/css">
+<style>
 	/*重置小圆点样式*/
 	
-
 	.index .yd-slider-pagination-item-active {
 		background: #FFFFFF;
 		width: 6px;
 		height: 6px;
 		background: #FFFFFF!important;
 	}
-
+	/*省市区插件样式*/
+	.yd-cell,.yd-cell-right,.yd-cell-right input[type=text],.yd-cell-item,.yd-cell-box{
+		height: 100%;
+		width: 100%;
+		min-height: 0;
+		margin: 0;
+		padding: 0;
+		background: #2873EE;
+		font-size: 0.28rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    opacity: 0;
+	}
+	.yd-cell-arrow:after{
+		display: none;
+	}
+	.yd-cell-box{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 </style>
+
 <style scoped>
 	@import url("../../../static/zxy.css");
 	.yd-slider {
@@ -241,6 +271,8 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;
+		position: relative;
+		text-align: center;
 	}
 	
 	.choose_area img {

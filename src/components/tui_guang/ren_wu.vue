@@ -17,15 +17,14 @@
 		<!--分类导航-->
 		<div class="fen_lei clearfix">
 			<swiper :options="swiperOption">
-		<swiper-slide v-for="slide,index in nav" :key="index">
-			<div class="fen_lei_item" v-for="item,index_in in slide" :key="index_in">
-				<img :src="item.url" />
-				<div>{{item.tit}}</div>
-			</div>
-		</swiper-slide>
-		<!--<div class="swiper-pagination" slot="pagination"></div>-->
-	</swiper>
-			
+				<swiper-slide v-for="slide,index in nav" :key="index">
+					<div class="fen_lei_item" v-for="item,index_in in slide" :key="index_in">
+						<img :src="item.url" />
+						<div>{{item.tit}}</div>
+					</div>
+				</swiper-slide>
+				<!--<div class="swiper-pagination" slot="pagination"></div>-->
+			</swiper>
 		</div>
 		<!--热门推荐-->
 		<div class="re_men">
@@ -51,8 +50,30 @@
 						</div>
 					</div>
 				</div>
+				<div class="ty_ying_yong_style01">
+					<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
+					<div class="style01_con">
+						<div class="tit">华夏银行手机银行</div>
+						<div class="mid_box">
+							<div class="subtit">华夏银行移动银行是为客户量身打造的移动金融服务平台金融服务平台金融服务平台</div>
+							<div class="get_btn">获取</div>
+						</div>
+						<div class="btm_box">
+							<div class="gong_yong_tips">
+								<div class="tip_item">财务</div>
+							</div>
+							<div class="price">
+								<span>返利金：￥</span><span style="font-size: 0.36rem;">12.0</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="see_more">
+					<span>查看更多</span><img src="../../assets/common/double_arrow.png" />
+				</div>
 			</div>
 		</div>
+		<bottom-view show='true'></bottom-view>
 	</div>
 </template>
 
@@ -90,17 +111,17 @@
 					tit: "金融类"
 				}],
 				swiperOption: {
-//					pagination: {
-//						el: '.swiper-pagination'
-//					},
-//					autoplay: true,
-					simulateTouch : true,
-					freeMode:false,
+					//					pagination: {
+					//						el: '.swiper-pagination'
+					//					},
+					//					autoplay: true,
+					simulateTouch: true,
+					freeMode: false,
 				},
 			}
 		},
 		created: function(e) {
-			this.nav=this.sliceArray(this.nav,8);
+			this.nav = this.sliceArray(this.nav, 8);
 			console.log(this.nav)
 		},
 		methods: {
@@ -166,7 +187,7 @@
 	.ren_wu .re_men .title {
 		width: 100%;
 		height: 0.98rem;
-		border: 1px solid #F0F0F0;
+		border-bottom: 1px solid #F0F0F0;
 		font-size: 0.36rem;
 		font-weight: 500;
 		color: #323232;

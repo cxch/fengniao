@@ -25,13 +25,40 @@
 				</div>
 			</div>
 			<div class="img_box" >	
-				<div style="display: flex;padding: 0 0.3rem;">
+				<div class="img_packet">
 					<img :src="item" v-for="(item,index) in imgs" @click="click_img" />
-				</div>
-										
+				</div>										
 			</div>
 		</div>
-		<!--软件介绍  结束-->
+		<!--软件介绍  结束-------------------------------------------------------------------->
+		
+		<!--视频详情-->
+			<div class="shi_pin">
+				<div class="video" >
+					<video src="http://www.w3school.com.cn/example/html5/mov_bbb.mp4" autoplay>
+						<source src="myvideo.mp4" type="video/mp4"></source>
+						<source src="myvideo.ogv" type="video/ogg"></source>
+						<source src="myvideo.webm" type="video/webm"></source>
+						<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+							<param name="movie" value="myvideo.swf" />
+							<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+						</object>
+						当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+					</video>
+				</div>
+				<div class="sp_des">
+					<div class="sp_des_row1">
+						<div class="tit">视频</div>
+						<div class="gong_yong_tips">
+							<div class="tip_item">财务</div>
+						</div>
+					</div>
+					<div class="sp_des_row2">北京思维造物信息科技有限公司</div>
+					<div class="sp_des_row3"><span>返利金：￥</span><span style="font-size: 0.48rem;">1.0</span></div>
+				</div>
+			</div>
+		<!--视频详情 结束-->
+		
 		<!--任务介绍-->
 		<div class="wrap">
 			<div class="ren_wu">
@@ -230,6 +257,7 @@
 </script>
 
 <style scoped>
+@import url("../../../static/zxy.css");
 	/*软件介绍 开始*/
 	.wrap {
 		background: #FFFFFF;
@@ -314,15 +342,19 @@
 	.jie_shao .img_box{
 		overflow: hidden;
 		overflow-x: scroll;
-		padding: 0.3rem;
-		height: 8.4rem;
+		padding: 0.3rem 0;
+		
+	}
+	.jie_shao .img_packet{
+		display: flex;
+		float: left;
+		padding:0 0.3rem;
 	}
 	.jie_shao .img_box img {
 		width: 4.4rem;
 		height: 7.8rem;
 		border-radius: 0.1rem;
 		margin-right: 0.2rem;
-		float: left;
 	}
 	
 	.jie_shao .swiper-container {
@@ -532,4 +564,35 @@
 		width: 0.36rem;
 		height: 0.36rem;
 	}
+	
+	/*视频的部分*/
+	.shi_pin{
+		margin-bottom: 0.2rem;
+		background: #FFFFFF;
+	}
+	.shi_pin video{
+		width: 100%;
+		height:4.24rem;
+	}
+	.sp_des{
+		padding: 0.2rem 0.3rem;
+	}
+	.sp_des_row1{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-weight:bold;
+		font-size: 0.4rem;
+	}
+	.sp_des_row2{
+		color: #646464;
+		font-size: 0.28rem;
+		padding: 0.1rem 0;
+	}
+	.sp_des_row3{
+		font-size: 0.24rem;
+		font-weight: bold;
+		color:#FF6600 ;
+	}
+	
 </style>
