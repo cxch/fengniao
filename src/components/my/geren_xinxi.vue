@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="mian list">
-				<span class="title">昵称</span>
+				<span class="title">性别</span>
 				<div class="mian_right">
 					<div class="xinxi">
 						男
@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="mian list">
-				<span class="title">昵称</span>
+				<span class="title">年龄</span>
 				<div class="mian_right">
 					<div class="xinxi">
 						18岁以下
