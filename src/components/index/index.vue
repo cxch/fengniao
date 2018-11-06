@@ -113,8 +113,8 @@
 							<img src="https://gxybjs.oss-cn-qingdao.aliyuncs.com/html_img/cl/my-red02.png" />
 						</div>
 						<div class="txt">
-							<div class="txt_p1">局部</div>
-							<div class="txt_p2 slh_one">《局部》跟随陈丹青的眼睛洞见洞见洞见…</div>
+							<div class="txt_p1">{{item.title}}</div>
+							<div class="txt_p2 slh_one">{{item.sub_details}}</div>
 							<div class="txt_p3">
 								<div class="gong_yong_tips">
 									<div class="tip_item">财务</div>
