@@ -10,7 +10,9 @@ import District from 'ydui-district/dist/gov_province_city_area_id';
 import 'vue-ydui/dist/ydui.base.css';
 //swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-
+//公共js
+import common from '../static/common.js';
+Vue.prototype.common=common;
 
 Vue.use(YDUI);
 Vue.config.productionTip = false;
