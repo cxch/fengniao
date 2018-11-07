@@ -1,125 +1,12 @@
 <template>
 	<div class="renwu_xq" v-cloak>
 		<!--头部-->
-		<head-view title="任务详情" border="false" v-cloak></head-view>
-		<!--软件介绍  开始-->
-		<div class="jie_shao">
-			<div style="padding: 0 0.3rem;">
-				<div class="detial">
-					<div class="des_box">
-						<img class="pic" :src="list.img" />
-						<div class="txt_box">
-							<div class="tit">{{list.title}}</div>
-							<div class="company">{{list.kf_company}}</div>
-							<div class="gong_yong_tips">
-								<div class="tip_item" v-for="item in list.label">{{item.name}}</div>
-							</div>
-							<div class="price_box">
-								<div class="price">
-									<span>返利金：￥</span><span style="font-size: 0.4rem;">{{list. fy_price}}</span>
-								</div>
-								<div class="get" @click='get'>获取</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="img_box" >	
-				<div class="img_packet">
-					<img :src="item.url" v-for="(item,index) in imgs" @click="click_img" />
-				</div>										
-			</div>
-		</div>
-		<!--软件介绍  结束-------------------------------------------------------------------->
-		
-		<!--视频详情-->
-			<div class="shi_pin" v-if="list.e_level==3">
-				<div class="video" >
-					<video :src="list.file" autoplay>
-						<source src="list.file" type="video/mp4"></source>
-						<source src="list.file" type="video/ogg"></source>
-						<source src="list.file" type="video/webm"></source>
-						<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
-							<param name="movie" value="myvideo.swf" />
-							<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
-						</object>
-						当前浏览器不支持 video直接播放，点击这里下载视频： <a href="list.file">下载视频</a>
-					</video>
-				</div>
-				<div class="sp_des">
-					<div class="sp_des_row1">
-						<div class="tit">{{list.title}}</div>
-						<div class="gong_yong_tips">
-							<div class="tip_item" v-for="item,index in list.label">{{item.name}}</div>
-						</div>
-					</div>
-					<div class="sp_des_row2">{{list.kf_company}}</div>
-					<div class="sp_des_row3"><span>返利金：￥</span><span style="font-size: 0.48rem;">{{list. fy_price}}</span></div>
-				</div>
-			</div>
-		<!--视频详情 结束-->
-		
-		<!--任务介绍-->
-		<div class="wrap">
-			<div class="ren_wu">
-				<div class="tit">任务介绍</div>
-				<div class="con" :class="shou?'active':''">
-					<div class="con_style1">
-						<div class="key">注意事项:</div>
-						<div class="value">{{list.zysx?list.zysx:'无注意事项'}}</div>
-					</div>
-					<div class="con_style1">
-						<div class="key">完成条件:</div>
-						<div class="value">{{list.wcti?list.wcti:'任意条件'}}</div>
-					</div>
-					<div class="con_style2">
-						<div class="key">操作流程:</div>
-						<div class="value">{{list.details}}</div>
-					</div>
-				</div>
-				<div class="shou_qi" v-if="!shou" @click="shou_qi">
-					<span>收起</span><img src="../../assets/common/arrrow_up.png" alt="" />
-				</div>
-				<div class="shou_qi zhan" v-else @click="shou_qi">
-					<span>展开</span><img src="../../assets/common/arrrow_up.png" alt="" />
-				</div>
-				
-			</div>
-		</div>
-		<!--任务介绍 结束-->
-		<!--软件简介-->
-		<div class="wrap">
-			<div class="jian_jie">
-				<div class="rjjj">
-					<div class="tit">软件简介</div>
-					<div class="con">
-						{{list.sub_details}}
-					</div>
-				</div>
-				<div class="rjxx">
-					<div class="tit">软件简介</div>
-					<div class="con">
-						<div class="con_item">
-							<span>上传时间</span><span style="color: #323232;">{{list.create_time}}</span>
-						</div>
-						<div class="con_item">
-							<span>开发公司</span><span style="color: #323232;">{{list.kf_company}}</span>
-						</div>
-						<div class="con_item1">
-							<div>备注：</div>
-							<div>{{list.contents}}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--软件简介 结束-->
+		<head-view title="全部评论" v-cloak></head-view>
 		<!--用户评价-->
 		<div class="wrap">
 			<div class="ping_jia">
-				<div class="tit" style="padding-bottom: 0;">用户评价({{list.comment?list.comment.length:0}})</div>
-				<div class="con">
-					<div class="con_item" v-for="item,index in list.comment" v-if="index<3">
+				<div class="con" v-for="item in list.comment">
+					<div class="con_item">
 						<div class="line1" style="font-size: 0.28rem;">{{item.content}}</div>
 						<div class="line2">
 							<img :src="item2" v-for="item2 in item.img"/>
@@ -136,85 +23,10 @@
 							<div>{{item.create_time}}</div>
 						</div>
 					</div>
-					<!--<div class="con_item">
-						<div class="line1" style="font-size: 0.28rem;">非常好，里面收费的知识质量都棒棒的！</div>
-						<div class="line2">
-							<img src=""/>
-							<img src=""/>
-							<img src=""/>
-							<img src=""/>
-						</div>
-						<div class="line3">
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star2.png"/>
-						</div>
-						<div class="line4">
-							<div>用户名</div>
-							<div>2018-08-15</div>
-						</div>
-					</div>-->
-				</div>
-				<div class="see_all" @click="pinglun">
-					<div>查看全部</div>
 				</div>
 			</div>
 		</div>
 		<!--用户评价 结束-->
-		<!--猜你喜欢-->
-		<div class="wrap">
-			<div class="xi_huan">
-				<div class="tit">猜你喜欢</div>
-				<div class="con clearfix">
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--猜你喜欢 结束-->
-		<!--占地方-->
-		<div style="height: 0.98rem;"></div>
-		<!--底部栏-->
-		<div class="di_bu">
-			<a style="width: 64%;" class="lian_xi" href="tel:400-110-9808">
-				<img src="../../assets/common/lian_xi.png" style="width: 0.4rem;height: 0.4rem;margin-right: 0.2rem;"/>
-				<span>联系客服</span>
-			</a>
-			<div style="width: 36%;" class="shou_cang">
-				<div class="sc_item" v-if="shou_cang" @click="shou_cang_fun">
-					<img src="../../assets/common/shou_cang1.png" />
-					<div style="color: #2873EE;">收藏</div>
-				</div>
-				<div class="sc_item" v-if="!shou_cang" @click="shou_cang_fun">
-					<img src="../../assets/common/shou_cang2.png" />
-					<div>收藏</div>
-				</div>
-				<div class="sc_item">
-					<img src="../../assets/common/feng_xiang.png"/>
-					<div>分享</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </template>
 
@@ -223,15 +35,7 @@
 		name: 'renwu_xq',
 		data() {
 			return {
-				swiperOption: {
-					slidesPerView: "auto",
-					spaceBetween: 0,
-					freeMode: true,
-				},
-				imgs: ["", "", ""],
-				shou: true,
-				shou_cang:false,
-				widthData:30,
+				imgs: [],
 				list:[]
 			}
 		},
@@ -248,11 +52,6 @@
 				success:function(res){
 					that.list = res.data
 					that.imgs = JSON.parse(res.data.images)
-					if(res.data.sc==1){
-						that.shou_cang = true
-					}else{
-						that.shou_cang = false
-					}
 				}
 			});
 		},
@@ -266,33 +65,7 @@
 			},
 			//点击收藏
 			shou_cang_fun(){
-				var that = this;
 				this.shou_cang=!this.shou_cang;
-				$.ajax({
-					type:"post",
-					url:"http://fnapi.dongdukeji.com/index.php/Api/Goods/sc",
-					async:true,
-					data:{
-						id:'146'
-					},
-					success:function(res){
-						if(res.code==1){
-							that.shou_cang = true
-						}else{
-							that.shou_cang = false
-						}
-					}
-				});
-			},
-			//点击评论
-			pinglun(){
-				this.$router.push({
-					path: '/pinglun'
-				});
-			},
-			//获取
-			get(){
-				window.location.href = this.list.file
 			}
 		},
 		mounted: function(e) {
