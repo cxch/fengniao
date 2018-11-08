@@ -136,26 +136,6 @@
 							<div>{{item.create_time}}</div>
 						</div>
 					</div>
-					<!--<div class="con_item">
-						<div class="line1" style="font-size: 0.28rem;">非常好，里面收费的知识质量都棒棒的！</div>
-						<div class="line2">
-							<img src=""/>
-							<img src=""/>
-							<img src=""/>
-							<img src=""/>
-						</div>
-						<div class="line3">
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star1.png"/>
-							<img src="../../assets/common/star2.png"/>
-						</div>
-						<div class="line4">
-							<div>用户名</div>
-							<div>2018-08-15</div>
-						</div>
-					</div>-->
 				</div>
 				<div class="see_all" @click="pinglun">
 					<div>查看全部</div>
@@ -168,25 +148,9 @@
 			<div class="xi_huan">
 				<div class="tit">猜你喜欢</div>
 				<div class="con clearfix">
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
-					</div>
-					<div class="con-item">
-						<img src=""/>
-						<div class="slh_one">水水s顶顶顶顶顶顶水水水</div>
+					<div class="con-item" v-for="item in goods_like" @click="like_router(item.id)">
+						<img :src="item.img"/>
+						<div class="slh_one">{{item.title}}</div>
 					</div>
 				</div>
 			</div>
@@ -223,6 +187,7 @@
 		name: 'renwu_xq',
 		data() {
 			return {
+				id:"",
 				swiperOption: {
 					slidesPerView: "auto",
 					spaceBetween: 0,
@@ -232,27 +197,64 @@
 				shou: true,
 				shou_cang:false,
 				widthData:30,
-				list:[]
+				list:[],
+				//猜你喜欢
+				goods_like:[],
 			}
 		},
 		created: function(e) {
 			var that = this;
 			this.widthData=4.6*this.imgs.lenght+0.6;
+			this.id = this.$route.query.id;
+			//详情
 			$.ajax({
 				type:"post",
-				url:"http://fnapi.dongdukeji.com/index.php/Api/Goods/details",
+				url:this.common.ajax_url+"/index.php/Api/Goods/details",
 				async:true,
+				xhrFields: {
+					withCredentials: true
+				},
 				data:{
 					id:'146'
 				},
 				success:function(res){
-					that.list = res.data
-					that.imgs = JSON.parse(res.data.images)
-					if(res.data.sc==1){
-						that.shou_cang = true
+					if(res.code==1){
+						that.list = res.data
+						that.imgs = JSON.parse(res.data.images)
+						if(res.data.sc==1){
+							that.shou_cang = true
+						}else{
+							that.shou_cang = false
+						}
 					}else{
-						that.shou_cang = false
+						that.$dialog.toast({
+		                    mes: res.info,
+		                    timeout: 1500,
+		                    icon: 'error'
+		                });
 					}
+					
+				}
+			});
+			//猜你喜欢
+			$.ajax({
+				type:"post",
+				url:this.common.ajax_url+"/index.php/Api/Goods/goods_like",
+				async:true,
+				xhrFields: {
+					withCredentials: true
+				},
+				success:function(res){
+					if(res.code==1){
+						that.goods_like = res.data
+					}else{
+						that.$dialog.toast({
+		                    mes: res.info,
+		                    timeout: 1500,
+		                    icon: 'error'
+		                });
+					}
+					
 				}
 			});
 		},
@@ -287,12 +289,23 @@
 			//点击评论
 			pinglun(){
 				this.$router.push({
-					path: '/pinglun'
+					path: '/pinglun',
+					query:{
+						id:this.id
+					}
 				});
 			},
 			//获取
 			get(){
 				window.location.href = this.list.file
+			},
+			like_router(_id){
+				this.$router.push({
+					path: '/',
+					query:{
+						id:_id
+					}
+				});
 			}
 		},
 		mounted: function(e) {

@@ -18,7 +18,13 @@
 
 		},
 		methods: {
-
+			tan(){
+				this.$dialog.toast({
+	                    mes: '请输入正整数',
+	                    timeout: 1500,
+	                    icon: 'error',
+	                });
+			}
 		},
 		mounted: function(e) {
 

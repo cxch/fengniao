@@ -244,6 +244,9 @@
 		color: #323232;
 		font-size: 0.32rem;
 		font-weight: bold;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;
 	}
 	
 	.wrap .main .main_top .main_top_right .main_top_content {

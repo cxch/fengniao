@@ -10,6 +10,9 @@ import qianbao from '@/components/my/qianbao' //钱包
 import qianbao_chongzhi from '@/components/my/qianbao_chongzhi' //钱包充值
 import qianbao_tixian from '@/components/my/qianbao_tixian' //钱包提现
 import qianbao_mingxi from '@/components/my/qianbao_mingxi' //钱包明细
+import shoucang from '@/components/my/shoucang' //钱包明细
+import jietu from '@/components/my/jietu' //上传截图
+import pingjia from '@/components/my/pingjia' //评价
 //推广
 import ren_wu from '@/components/tui_guang/ren_wu' //任务页面
 //首页
@@ -32,6 +35,7 @@ import shiyan from '@/components/shi_yan/shi_yan'
 Vue.use(Router)
 
 export default new Router({
+	mode: 'history', 
 	routes: [{
 		path: '/index',
 		name: 'index',
@@ -73,7 +77,7 @@ export default new Router({
 		name: 'ren_wu_list',
 		component: ren_wu_list
 	}, {
-		path: '/',
+		path: '/renwu_xq',
 		name: 'renwu_xq',
 		component: renwu_xq
 	}, {
@@ -127,5 +131,26 @@ export default new Router({
 		path: '/pinglun',
 		name: 'pinglun',
 		component: pinglun
-	}]
+	}, {
+		path: '/shoucang',
+		name: 'shoucang',
+		component: shoucang
+	}, {
+		path: '/jietu',
+		name: 'jietu',
+		component: jietu,
+		meta: {
+			title: '上传截图'
+		}
+	}, {
+		path: '/',
+		name: 'pingjia',
+		component: pingjia,
+		meta: {
+			title: '评价'
+		}
+	}],
+	scrollBehavior (to, from, savedPosition) {
+	    return { x: 0, y: 0 }
+  	}
 })

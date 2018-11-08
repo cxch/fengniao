@@ -36,29 +36,36 @@
 		data() {
 			return {
 				imgs: [],
-				list:[]
+				list:[],
+				id:""
 			}
 		},
 		created: function(e) {
 			var that = this;
 			this.widthData=4.6*this.imgs.lenght+0.6;
+			this.id = this.$route.query.id
 			$.ajax({
 				type:"post",
-				url:"http://fnapi.dongdukeji.com/index.php/Api/Goods/details",
+				url:this.common.ajax_url+"/index.php/Api/Goods/details",
 				async:true,
 				data:{
-					id:'146'
+					id:this.id
 				},
 				success:function(res){
-					that.list = res.data
-					that.imgs = JSON.parse(res.data.images)
+					if(res.code==1){
+						that.list = res.data
+						that.imgs = JSON.parse(res.data.images)
+					}else{
+						that.$dialog.toast({
+		                    mes: res.info,
+		                    timeout: 1500,
+		                    icon: 'error'
+		                });
+					}
 				}
 			});
 		},
 		methods: {
-			click_img() {
-				alert("aaa")
-			},
 			//点击收起
 			shou_qi() {
 				this.shou = !this.shou
